@@ -24,4 +24,14 @@
         <module>grpc-server-demo</module>
         <module>grpc-client-demo</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.datafaker</groupId>
+                <artifactId>datafaker</artifactId>
+                <version>2.7.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
