@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.maz.grpc.demo.account.v1;
+
+option java_multiple_files = true;
+option java_package = "com.maz.grpc.demo.account.v1";
+option java_outer_classname = "AccountProto";
+
+service AccountService {
+  rpc GetAccount (GetAccountRequest) returns (AccountReply);
+}
+
+message GetAccountRequest {
+  string account_number = 1;
+}
+
+message AccountReply {
+  string account_number = 1;
+  string iban = 2;
+  string owner_full_name = 3;
+  double balance = 4;
+  string currency = 5;
+  AccountStatus status = 6;
+  AccountType type = 7;
+  string opened_date = 8;
+  repeated string linked_card_numbers = 9;
+}
+
+enum AccountStatus {
+  ACCOUNT_STATUS_UNSPECIFIED = 0;
+  ACTIVE = 1;
+  SUSPENDED = 2;
+  CLOSED = 3;
+}
+
+enum AccountType {
+  ACCOUNT_TYPE_UNSPECIFIED = 0;
+  CHECKING = 1;
+  SAVINGS = 2;
+  LOAN = 3;
+}
