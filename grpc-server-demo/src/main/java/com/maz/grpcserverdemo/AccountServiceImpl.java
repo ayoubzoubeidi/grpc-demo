@@ -13,7 +13,11 @@ import java.util.stream.IntStream;
 @Service
 public class AccountServiceImpl extends AccountServiceGrpc.AccountServiceImplBase {
 
-    private final Faker faker = new Faker();
+    private final Faker faker;
+
+    public AccountServiceImpl(Faker faker) {
+        this.faker = faker;
+    }
 
     @Override
     public void getAccount(GetAccountRequest request, StreamObserver<AccountReply> responseObserver) {
